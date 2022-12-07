@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "react-query"; // 서버에서 데이터 가져올때 사용할 hook
+import { PostDetail } from "./PostDetail";
 
 const maxPostPage = 10;
 
@@ -49,7 +50,7 @@ export function Posts() {
                 </button>
             </div>
             <hr />
-            {/* { selectedPost && } */}
+            { selectedPost &&  <PostDetail post={selectedPost} /> }
         </>
     );
 }
