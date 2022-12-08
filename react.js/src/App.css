@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* React-query(base-blog-em) */
+li {
+  margin-top: 8px;
+}
+
+li.post-title {
+  cursor: pointer;
+}
+
+li.post-title:hover {
+  opacity: 0.6;
+}
+
+div.pages {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
