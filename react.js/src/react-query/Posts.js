@@ -16,20 +16,23 @@ export function Posts() {
     const [selectedPost, setSelectedPost] = useState(null);
 
     const { data, isError, error, isLoading } = useQuery(
-        ['posts', currentPage],
+        ["posts", currentPage],
         () => fetchPosts(currentPage),
         {
-        staleTime: 2000
-    }); //쿼리이름, 함수(쿼리의 데이터 가져올 방법), options(2초마다 게시물 만료)
+            staleTime: 2000,
+        }
+    ); //쿼리이름, 함수(쿼리의 데이터 가져올 방법), options(2초마다 게시물 만료)
     // [의존성 배열] -> 바뀌면 함수도 바뀜 => 데이터 변경
 
     if (isLoading) return <h3>Loading...</h3>;
-    if (isError) return (
-        <>
-            <h3>something went wrong ㅠ</h3>
-            <p>{error.toString()}</p>{/* TypeError: Failed to fetch */}
-        </>
-    )
+    if (isError)
+        return (
+            <>
+                <h3>something went wrong ㅠ</h3>
+                <p>{error.toString()}</p>
+                {/* TypeError: Failed to fetch */}
+            </>
+        );
 
     return (
         <>
@@ -37,7 +40,7 @@ export function Posts() {
                 {data.map((post) => (
                     <li
                         key={post.id}
-                        className='post-title'
+                        className="post-title"
                         onClick={() => setSelectedPost(post)}
                     >
                         {post.title}
@@ -48,7 +51,7 @@ export function Posts() {
                 <button
                     disabled={currentPage <= 1}
                     onClick={() => {
-                        setCurrentPage(previousValue => previousValue - 1);
+                        setCurrentPage((previousValue) => previousValue - 1);
                     }}
                 >
                     Previous page
@@ -59,14 +62,14 @@ export function Posts() {
                 <button
                     disabled={currentPage >= maxPostPage}
                     onClick={() => {
-                        setCurrentPage(previousValue => previousValue + 1);
+                        setCurrentPage((previousValue) => previousValue + 1);
                     }}
                 >
                     Next page
                 </button>
             </div>
             <hr />
-            { selectedPost &&  <PostDetail post={selectedPost} /> }
+            {selectedPost && <PostDetail post={selectedPost} />}
         </>
     );
 }
