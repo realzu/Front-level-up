@@ -2,7 +2,7 @@
 
 import logo from "./logo.svg";
 
-function App2() {
+function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -23,4 +23,4 @@ function App2() {
 	);
 }
 
-export default App2;
+export default App;
