@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import "./App.css";
 import { Posts } from "./react-query/Posts";
 
-function App() {
+function App2() {
 	const queryClient = new QueryClient();
 
 	return (
@@ -21,4 +21,4 @@ function App() {
 	);
 }
 
-export default App;
+export default App2;
