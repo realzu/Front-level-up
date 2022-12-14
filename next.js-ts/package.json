@@ -20,6 +20,7 @@
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-image-gallery": "^1.2.11",
     "typescript": "4.9.3"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/react": "^6.5.14",
     "@storybook/testing-library": "^0.0.13",
+    "@types/react-image-gallery": "^1.2.0",
     "babel-loader": "^8.3.0",
     "eslint-plugin-storybook": "^0.6.8",
     "prettier": "^2.8.1"
