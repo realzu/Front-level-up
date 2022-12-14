@@ -14,7 +14,8 @@ test('button has correct initial color', () => {
 });
 
 test('button turns blue when clicked', () => {
-
+  render(<App />);
+  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
 })
 
 /*
