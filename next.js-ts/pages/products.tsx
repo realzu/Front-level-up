@@ -1,4 +1,4 @@
-import ImageGallery from 'react-image-gallery';
+import ImageGallery from 'react-image-gallery'
 
 const images = [
   {
@@ -13,10 +13,26 @@ const images = [
     original: 'https://picsum.photos/id/1019/1000/600/',
     thumbnail: 'https://picsum.photos/id/1019/250/150/',
   },
-];
+]
 
 import React from 'react'
+import Carousel from 'nuka-carousel'
+import Image from 'next/image'
 
 export default function Products() {
-    return <ImageGallery items={images} />
+  // return <ImageGallery items={images} />
+  return (
+    <Carousel animation='fade' autoplay withoutControls>
+      {images.map((item) => (
+        <Image
+          key={item.original}
+          src={item.original}
+          alt="image"
+          width={1000}
+          height={600}
+          layout='responsive'
+        />
+      ))}
+    </Carousel>
+  )
 }
