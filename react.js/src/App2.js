@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import "./App.css";
+import "./App2.css";
 import { Posts } from "./react-query/Posts";
 
 function App2() {
