@@ -1,9 +1,13 @@
-import Average from './Average';
-// import Counter from './Counter';
-// import Info from './Info';
+import React, { Component } from 'react';
+import Box from './Box';
 
-const App = () => {
-  return <Average />;
-};
-
-export default App;
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Box ref={(ref) => (this.bbooxx = ref)} />
+        <button onClick={() => this.bbooxx.scrollToBottom()}>맨 밑으로</button>
+      </div>
+    );
+  }
+}
