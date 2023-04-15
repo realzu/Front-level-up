@@ -1,3 +1,4 @@
+import produce from 'immer';
 import { useCallback, useRef, useState } from 'react';
 
 const Immutability = () => {
@@ -8,16 +9,14 @@ const Immutability = () => {
     uselessValue: null,
   });
 
-  const onChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      setForm({
-        ...form,
-        [name]: value,
-      });
-    },
-    [form],
-  );
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setForm(
+      produce((draft) => {
+        draft[name] = value;
+      }),
+    );
+  }, []);
 
   const onSubmit = useCallback(
     (e) => {
@@ -28,10 +27,11 @@ const Immutability = () => {
         username: form.username,
       };
 
-      setData({
-        ...data,
-        array: data.array.concat(info),
-      });
+      setData(
+        produce((draft) => {
+          draft.array.push(info);
+        }),
+      );
 
       setForm({
         name: '',
@@ -40,18 +40,19 @@ const Immutability = () => {
 
       nextId.current += 1;
     },
-    [data, form.name, form.username],
+    [form.name, form.username],
   );
 
-  const onRemove = useCallback(
-    (id) => {
-      setData({
-        ...data,
-        array: data.array.filter((info) => info.id !== id),
-      });
-    },
-    [data],
-  );
+  const onRemove = useCallback((id) => {
+    setData(
+      produce((draft) => {
+        draft.array.splice(
+          draft.array.findIndex((info) => info.id === id),
+          1,
+        );
+      }),
+    );
+  }, []);
 
   return (
     <div>
