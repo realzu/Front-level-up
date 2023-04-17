@@ -8,6 +8,7 @@ import Profile from './RouteComponents/Profile';
 import Articles from './RouteComponents/Articles';
 import Article from './RouteComponents/Article';
 import Layout from './RouteComponents/Layout';
+import NewsPage from './NewsComponents/NewsPage';
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
       <Route path="/articles" element={<Articles />}>
         <Route path=":id" element={<Article />} />
       </Route>
+
+      <Route path="/news" element={<NewsPage />} />
+      <Route path="/:category" element={<NewsPage />} />
     </Routes>
   );
 };
