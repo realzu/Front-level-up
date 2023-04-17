@@ -9,6 +9,7 @@ import Articles from './RouteComponents/Articles';
 import Article from './RouteComponents/Article';
 import Layout from './RouteComponents/Layout';
 import NewsPage from './NewsComponents/NewsPage';
+import ColorPage from './ContextComponents/ColorPage';
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
 
       <Route path="/news" element={<NewsPage />} />
       <Route path="/:category" element={<NewsPage />} />
+
+      <Route path="/color" element={<ColorPage />} />
     </Routes>
   );
 };
