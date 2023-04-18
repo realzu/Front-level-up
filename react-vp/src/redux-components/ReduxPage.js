@@ -1,12 +1,14 @@
-import CounterContainer from '../redux-containers/CounterContainer';
-import TodosContainer from '../redux-containers/TodosContainer';
+// import CounterContainer from '../redux-containers/CounterContainer';
+import SampleContainer from '../redux-containers/SampleContainer';
+// import TodosContainer from '../redux-containers/TodosContainer';
 
 const ReduxPage = () => {
   return (
     <div>
-      <CounterContainer />
+      {/* <CounterContainer />
       <hr />
-      <TodosContainer />
+      <TodosContainer /> */}
+      <SampleContainer />
     </div>
   );
 };
