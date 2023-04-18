@@ -10,6 +10,7 @@ import Article from './RouteComponents/Article';
 import Layout from './RouteComponents/Layout';
 import NewsPage from './NewsComponents/NewsPage';
 import ColorPage from './ContextComponents/ColorPage';
+import ReduxPage from './redux-components/ReduxPage';
 
 const App = () => {
   return (
@@ -31,6 +32,8 @@ const App = () => {
       <Route path="/:category" element={<NewsPage />} />
 
       <Route path="/color" element={<ColorPage />} />
+
+      <Route path="/redux" element={<ReduxPage />} />
     </Routes>
   );
 };
