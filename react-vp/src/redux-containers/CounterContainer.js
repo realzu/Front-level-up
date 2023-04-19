@@ -7,7 +7,7 @@ import {
 import { useCallback } from 'react';
 
 const CounterContainer = () => {
-  const number = useSelector((state) => state.counter.number);
+  const number = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   const onIncrease = useCallback(() => dispatch(increaseAsync()), [dispatch]);
   const onDecrease = useCallback(() => dispatch(decreaseAsync()), [dispatch]);
