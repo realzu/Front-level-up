@@ -11,6 +11,7 @@ import Layout from './RouteComponents/Layout';
 import NewsPage from './NewsComponents/NewsPage';
 import ColorPage from './ContextComponents/ColorPage';
 import ReduxPage from './redux-components/ReduxPage';
+import SplitPage from './Components/SplitPage';
 
 const App = () => {
   return (
@@ -34,6 +35,8 @@ const App = () => {
       <Route path="/color" element={<ColorPage />} />
 
       <Route path="/redux" element={<ReduxPage />} />
+
+      <Route path="/split" element={<SplitPage />} />
     </Routes>
   );
 };
