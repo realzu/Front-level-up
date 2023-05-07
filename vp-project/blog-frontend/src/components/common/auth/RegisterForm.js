@@ -54,6 +54,11 @@ const RegisterForm = () => {
   useEffect(() => {
     if (user) {
       navigate('/'); // home화면
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (error) {
+        console.log('localStorage error');
+      }
     }
   }, [user, navigate]);
 
