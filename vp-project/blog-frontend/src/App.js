@@ -12,9 +12,9 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/write" element={<WritePage />} />
-      <Route path="/@:username">
+      <Route path="/:username">
         <Route index element={<PostListPage />} />
-        <Route path=":postid" element={<PostPage />} />
+        <Route path=":postId" element={<PostPage />} />
       </Route>
     </Routes>
   );

@@ -1,12 +1,13 @@
 import React from 'react';
-import Header from '../components/common/Header';
+import AskModal from '../components/common/AskModal';
 
 const PostListPage = () => {
   return (
-    <>
-      <Header />
-      <div>hi</div>
-    </>
+    <AskModal
+      visible={true}
+      title="포스트 삭제"
+      description="정말 삭제하시겠습니까?"
+    />
   );
 };
 
