@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 
 async function fetchComments(postId) {
 	const response = await fetch(
@@ -23,13 +23,21 @@ async function updatePost(postId) {
 	return response.json();
 }
 
+const ab = "ax";
+
 export function PostDetail({ post }) {
 	const { data, isLoading, isError, error } = useQuery(
-		["comment", post.id],
+		["comments", post.id],
 		() => {
 			fetchComments(post.id);
 		}
-	); // 의존성 배열로 'comment'뿐만 아니라 식별자 더해짐(post.id)
+	); // 의존성 배열로 'comments'뿐만 아니라 식별자 더해짐(post.id)
+
+	const deleteMutation = useMutation((postId) => deletePost(postId));
+
+	if (isError) {
+		return <></>;
+	}
 
 	return (
 		<>

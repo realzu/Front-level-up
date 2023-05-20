@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useQuery } from "react-query"; // 서버에서 데이터 가져올때 사용할 hook
+import { useEffect, useState } from "react";
+import { useQuery, useQueryClient } from "react-query"; // 서버에서 데이터 가져올때 사용할 hook
 import { PostDetail } from "./PostDetail";
 
 const maxPostPage = 10;
@@ -15,11 +15,24 @@ export function Posts() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPost, setSelectedPost] = useState(null);
 
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    // prefetching
+    if (currentPage < maxPostPage) {
+      const nextPage = currentPage + 1;
+      queryClient.prefetchQuery(["posts", nextPage], () =>
+        fetchPosts(nextPage)
+      );
+    }
+  }, [currentPage, queryClient]);
+
   const { data, isError, error, isLoading } = useQuery(
     ["posts", currentPage],
     () => fetchPosts(currentPage),
     {
       staleTime: 2000,
+      keepPreviousData: true,
     }
   ); //쿼리이름, 함수(쿼리의 데이터 가져올 방법), options(2초마다 게시물 만료)
   // [의존성 배열] -> 바뀌면 함수도 바뀜 => 데이터 변경
